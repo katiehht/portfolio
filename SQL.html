@@ -1,0 +1,235 @@
+<!DOCTYPE HTML>
+<!--
+	Miniport by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Katie Ho's portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Nav -->
+			<nav id="nav">
+				<ul class="container">
+					<li><a href="index.html">Main</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+
+		<!-- Work -->
+			<article id="work" class="wrapper style2">
+				<div class="container">
+					<header>
+						<h2>Advanced SQL Queries for Marketing Analytics and A/B Testing</h2>
+
+					</header>
+
+								<h3 align="left">Introduction</h3>
+					<p align="left">This is a course project of the Advanced SQL For Analytics & Business Intelligence Course on Udemy.</p>
+					<p align="left">This project was about analyzing the eCommerce data of Maven Fuzzy Factory, an online retailer which has just launched its first product. I analyzed and optimized the marketing channels, measured and tested website conversion performance, and used data to understand the impact of new product launches.</p>
+					<p align="left">Specifically, in this project, I use SQL to:</p>
+					<p align="left">•Access and explore the Maven Fuzzy Factory database</p>
+					            <p align="left">•Become the data expert for the company, and the go-to person for mission critical analyses<p
+					<p align="left">•Analyze and optimize the business’ marketing channels, website, and product portfolio</p>
+					 <h3 align="left">Background</h3>
+					<p align="left">Eight months after launching the first product, the CEO of Maven Fuzzy Factory asked eight questions to understand the website's performance better. Here I will show you how I answered all the questions by writing SQL queries.</p>
+					         <p align="left">The structure of Maven Fuzzy Factory Database is illustrated in this entity relationship diagram.</p>
+					                   <div style="text-align: left;"><img src="images/sql1.png" alt="" /></div>
+					    <h4 align="left">1 I’d like to tell the story of our website performance improvements over the course of the first 8 months. Could you pull session to order conversion rates, by month?
+						</h4>
+					<h4 align="left">SQL code: </h4>
+					     <div style="text-align: left;"><img src="images/sql2.png" alt="" /></div>
+					<h4 align="left">Results: </h4>
+					<div style="text-align: left;"><img src="images/sql3.png" alt="" /></div>
+					          <h4 align="left">Interpretation: </h4>
+					<p align="left">The results show that the website sessions and orders both increased over time during the eight months. This result indicates that the website performance was improving as the sessions and orders were growing substantially. The last month's orders were over six times the orders in the first month.</p>
+					  <h4 align="left">2 Next, it would be great to see a similar monthly trend for Gsearch, but this time splitting out nonbrand and brand campaigns separately. I am wondering if brand is picking up at all. If so, this is a good story to tell. </h4>
+			             <h4 align="left">SQL code: </h4>
+					<div style="text-align: left;"><img src="images/sql4.png" alt="" /></div>
+				<h4 align="left">Results: </h4>
+	                             <div style="text-align: left;"><img src="images/sql5.png" alt="" /></div>
+				             <h4 align="left">Interpretation: </h4>
+				<p align="left">The brand and nonbrand sessions/orders all increased over time. The brand order/sessions were those sessions done through explicitly searching for the brand name. The lift of brand sessions/orders indicates an increase in brand awareness.
+				</p>
+				  <h4 align="left">3 While we’re on Gsearch, could you dive into nonbrand, and pull monthly sessions and orders split by device type?I want to flex our analytical muscles a little and show the board we really know our traffic sources.
+				  </h4>
+				      <h4 align="left">SQL code: </h4>
+				             <div style="text-align: left;"><img src="images/sql6.png" alt="" /></div>
+			               <h4 align="left">Results: </h4>
+					                      <div style="text-align: left;"><img src="images/sql7.png" alt="" /></div>
+					<h4 align="left">Interpretation: </h4>
+					<p align="left">   We see a trend that the mobile session proportion decreased over time. In the first month, it was around 2/3 mobile sessions in all the sessions, while in the last month, the ratio turned to 1/3. Similarly, in the first month, it was around 1/5 mobile orders in all the orders, while in the last month, the ratio turned to 1/10. The marketing team can allocate more resources to the desktop channel than the mobile channel.</p>
+					                <h4 align="left">4 I’m worried that one of our more pessimistic board members may be concerned about the large % of traffic from Gsearch. Can you pull monthly trends for Gsearch, alongside monthly trends for each of our other channels?
+									</h4>
+					                  <h4 align="left">SQL Code & Results: </h4>
+					                   <div style="text-align: left;"><img src="images/sql8.png" alt="" /></div>
+					                               <div style="text-align: left;"><img src="images/sql9.png" alt="" /></div>
+					 <div style="text-align: left;"><img src="images/sql10.png" alt="" /></div>
+					 <div style="text-align: left;"><img src="images/sql11.png" alt="" /></div>
+					<h4 align="left">Interpretation: </h4>
+					          <p align="left">The gsearch and bsearch are basically different search engines. The brand campaign means the session comes from brand name searching. If both the source and campaign are null, but the referrer is not null, this session comes from an organic search. If the source, campaign, and referrer are all null, the session comes from typing the website address.</p>
+					<p align="left">The traffic of paid channels, gsearch and bsearch are all increased during the period. The traffic of gsearch is approximately 3 times that of the bsearch. We are happy to see that the unpaid channels, organic and direct typing, were also increased, indicating an increase in our brand awareness</p>
+					    <h4 align="left">5 I’d like to tell the story of our website performance improvements over the course of the first 8 months. Could you pull session to order conversion rates, by month? </h4>
+					              <h4 align="left">SQL code: </h4>
+					                         <div style="text-align: left;"><img src="images/sql12.png" alt="" /></div>
+					                                 <h4 align="left">Results: </h4> 
+					                                                           <div style="text-align: left;"><img src="images/sql13.png" alt="" /></div>
+					                                 <h4 align="left">Interpretation: </h4>
+					<p align="left">Sessions and orders are the same to Q1. The session to order rate was increasing during the time period except for a slight drop in the second month.</p>
+			                       <h4 align="left">6 For the gsearch lander test, please find out the conversion rate change. </h4>
+					                 <p align="left">This is an A/B test of two landing pages (/home and /lander-1).</p>
+					<p align="left">First, we try to find the first website pageview in the A/B test.</p>
+					                             <div style="text-align: left;"><img src="images/sql14.png" alt="" /></div>
+					<p align="left">The first page view ID was 23504.</p>
+					                     <div style="text-align: left;"><img src="images/sql15.png" alt="" /></div>
+					                       <p align="left">Then we try to find the landing page (first pageview) of every session during the test.</p>
+					      <div style="text-align: left;"><img src="images/sql16.png" alt="" /></div>
+					           <div style="text-align: left;"><img src="images/sql17.png" alt="" /></div>
+					                 	<p align="left">Now that we have all the landing pageview IDs, we need to narrow it down to only including /home and /lander-1.</p>
+			                                       <div style="text-align: left;"><img src="images/sql18.png" alt="" /></div>
+					<div style="text-align: left;"><img src="images/sql19.png" alt="" /></div>
+					<p align="left">In the next step, we find out if the session in the test eventually was converted to order.</p>
+					<div style="text-align: left;"><img src="images/sql20.png" alt="" /></div>
+					<div style="text-align: left;"><img src="images/sql21.png" alt="" /></div>
+					<p align="left">The last step is to summarize the total session, total orders, and conversion rate of the two landing pages.</p>
+                      <div style="text-align: left;"><img src="images/sql22.png" alt="" /></div>
+					<div style="text-align: left;"><img src="images/sql23.png" alt="" /></div>
+					 <h4 align="left">Interpretation: </h4>
+					<p align="left">the A/B test results show that compared with /home, the new landing page (/lander-1) had better performance in terms of the total session, total orders, and conversion rate. The CVR was increased by 0.88%. This lift in conversion rate indicated an increase in revenue. We need to replace the old landing page with the new one.</P>
+					 <h4 align="left">7 For the landing page test you analyzed previously, it would be great to show a full conversion funnel from each of the two pages to orders.
+SQL Code & Results: </h4>
+					<p align="left">This is an A/B test of two landing pages (/home and /lander-1).</p>
+					<p align="left">First, we try to find the first website pageview in the A/B test.</p>
+					<div style="text-align: left;"><img src="images/sql24.png" alt="" /></div>
+					<div style="text-align: left;"><img src="images/sql25.png" alt="" /></div>
+					<p align="left">It was 23504.</p>
+					<p align="left">Then we try to find the landing page (first pageview) of every session during the test.</p>
+                     <div style="text-align: left;"><img src="images/sql26.png" alt="" /></div>
+					<div style="text-align: left;"><img src="images/sql27.png" alt="" /></div>
+					<p align="left">Now that we have all the landing pageview IDs, we need to narrow it down to only including /home and /lander-1.</p>
+					<div style="text-align: left;"><img src="images/sql28.png" alt="" /></div>
+					<div style="text-align: left;"><img src="images/sql29.png" alt="" /></div>
+					<p align="left">When a session starts from the landing page to order, the customer click by this sequence: landing, product, the original Mr. Fuzzy page, cart, shipping, billing, and thank you page. This is called landing to order route.</p>
+					<p align="left">In the next step, we find out whether a session went to a certain page in the landing to order route. If a session contains a certain page, we add a 1 mark to that page, if not, we add 0.</p>
+					<div style="text-align: left;"><img src="images/sql30.png" alt="" /></div>
+					<div style="text-align: left;"><img src="images/sql31.png" alt="" /></div>
+					<p align="left">Next, we summarized the page statistics of each session.</p>
+					<div style="text-align: left;"><img src="images/sql32.png" alt="" /></div>
+					<div style="text-align: left;"><img src="images/sql33.png" alt="" /></div>
+					<p align="left">In the last step, we count the sessions click through each pages.</p>
+					<div style="text-align: left;"><img src="images/sql34.png" alt="" /></div>
+					<div style="text-align: left;"><img src="images/sql35.png" alt="" /></div>
+					<h4 align="left">Interpretation: </h4>
+					<p align="left">The number of sessions decreases like a funnel along the landing to order route. We can calculate the click-through rate between every two pages in the funnel, figure out the bottleneck step, and improve.</p>
+					<h4 align="left">8 I’d love for you to quantify the impact of our billing test, as well. Please analyze the lift generated from the test (Sep 10 –Nov 10), in terms of revenue per billing page session. </h4>
+					<h4 align="left">SQL Code & Results: </h4>
+					<p align="left">This is an A/B test of two billing pages (/billing and /billing-2).</p>
+					<p align="left">First, we try to find the first website pageview in the A/B test.</p>
+					<div style="text-align: left;"><img src="images/sql36.png" alt="" /></div>
+					<div style="text-align: left;"><img src="images/sql37png" alt="" /></div>
+					<p align="left">The first page view id is 53550.</p>
+					<p align="left">We will find all the web sessions clicked through the two billing pages.</p>
+					<div style="text-align: left;"><img src="images/sql38.png" alt="" /></div>
+					<div style="text-align: left;"><img src="images/sql39.png" alt="" /></div>
+					<p align="left">Next we will find out the pages clicked from billing pages to orders.</p>
+					<div style="text-align: left;"><img src="images/sql40.png" alt="" /></div>
+					<div style="text-align: left;"><img src="images/sql41.png" alt="" /></div>
+					<p align="left">Finally, we calculate the session to order rate and revenue per session.</p>
+					<div style="text-align: left;"><img src="images/sql42.png" alt="" /></div>
+					<div style="text-align: left;"><img src="images/sql43.png" alt="" /></div>
+					<h4 align="left">Interpretation: </h4>
+					<p align="left">The /billing-2 page had a better session-to-order rate and higher revenue per session than the original billing page. We need to replace the original one with the new one. The new billing page is now worth $8.5 more than the old one. Each billing session we have will bring us $8.5 more revenue.</p>
+
+
+				</div>
+
+
+
+
+			</article>
+
+
+
+
+		<!-- Contact -->
+			<article id="contact" class="wrapper style4">
+				<div class="container medium">
+					<header>
+						<h2>Collaboration is welcomed!<h2>
+
+					</header>
+					<div class="row">
+						<div class="col-12">
+							<form method="post" action="#">
+								<div class="row">
+									<div class="col-6 col-12-small">
+										<input type="text" name="name" id="name" placeholder="Name" />
+									</div>
+									<div class="col-6 col-12-small">
+										<input type="text" name="email" id="email" placeholder="Email" />
+									</div>
+									<div class="col-12">
+										<input type="text" name="subject" id="subject" placeholder="Subject" />
+									</div>
+									<div class="col-12">
+										<textarea name="message" id="message" placeholder="Message"></textarea>
+									</div>
+									<div class="col-12">
+										<ul class="actions">
+											<li><a href="mailto:katieska8e@gmail.com"><input type="submit" value="Send Message" /></li>
+											<li><input type="reset" value="Clear Form" class="alt" /></li>
+										</ul>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="col-12">
+							<hr />
+							</article>
+		<!-- Contact Info -->
+			<article id="contactinfo" class="wrapper style4">
+				<div class="container medium">
+
+							<h3>Contact Information</h3>
+							<ul class="social">
+								<li><a href="mailto:katieska8e@gmail.com" class="fa fa-envelope"></a></li>
+								<li><a href="https://www.linkedin.com/in/katie-ho-61780b85/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+
+								<!--
+								<li><a href="#" class="icon solid fa-rss"><span>RSS</span></a></li>
+								<li><a href="#" class="icon brands fa-instagram"><span>Instagram</span></a></li>
+								<li><a href="#" class="icon brands fa-foursquare"><span>Foursquare</span></a></li>
+								<li><a href="#" class="icon brands fa-skype"><span>Skype</span></a></li>
+								<li><a href="#" class="icon brands fa-soundcloud"><span>Soundcloud</span></a></li>
+								<li><a href="#" class="icon brands fa-youtube"><span>YouTube</span></a></li>
+								<li><a href="#" class="icon brands fa-blogger"><span>Blogger</span></a></li>
+								<li><a href="#" class="icon brands fa-flickr"><span>Flickr</span></a></li>
+								<li><a href="#" class="icon brands fa-vimeo"><span>Vimeo</span></a></li>
+								-->
+							</ul>
+							<hr />
+						</div>
+					</div>
+					<footer>
+						<ul id="copyright">
+							<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+				</div>
+			</article>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

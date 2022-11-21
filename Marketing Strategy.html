@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<!--
+	Miniport by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Katie Ho's portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Nav -->
+			<nav id="nav">
+				<ul class="container">
+					<li><a href="index.html">Main</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+
+		<!-- Work -->
+			<article id="work" class="wrapper style2">
+				<div class="container">
+					<header>
+						<h2>Development of a Marketing Strategy for a Banking Firm</h2>
+
+					</header>
+
+								<h3 align="left">Introduction</h3>
+								<p align="left">The firm is Portuguese financial institution who performed a telephone marketing campaigned from May 2008 to November 2010 to increase the number of customers who subscribed to a term deposit. Term deposits remain an important method for banks to generate revenue. Term deposits offer customers a guaranteed interest rate without the risk of loss to the underlying capital on funds deposited for a pre-specified time period. Banks use the funds from term deposits to extend loans and mortgages to other customers at a higher interest rate than that paid on terms deposits. The interest gained from loans and mortgages less the interest paid on term deposits is one source of bank revenue.</p>
+<h3 align="left">Problem Statement</h3>
+					<p align="left"><u>Business Problem Statement:</u> How can a financial institution increase the number of customers who subscribe to term deposits and increase their revenues?</p>
+					<p align="left"><u>Main Goal:</u> Provide a marketing strategy to the client that will successfully increase the term deposits.</p>
+					<h3 align="left">Data Source</h3>
+					<p align="left">The marketing firm dataset is using is available on Kaggle, as a CSV file. It is a subset of a data set from the UCI Machine Learning Repository collected to analyze whether decision support systems could be used to support managerial decision making in the banking services sector. The link to the dataset: https://www.kaggle.com/prakharrathi25/banking-dataset-marketing-targets.</p>
+						<h3 align="left">Data Cleaning</h3>
+					<p align="left">To ensure a high-quality analysis, we cleansed and prepared the dataset by taking the following steps:</p>
+					<p align="left">1. Character categorical variables (job, education, marital, month) were converted to as factors.</p>
+					<p align="left">2. Observations where outcome has “unknown” or “other” were removed.</p>
+					<p align="left">3. During modelling, skewed variables were log transformed.</p>
+					<h3 align="left">Findings and Results</h3>
+					<h4 align="left">How Should Customers Be Segmented?</h4>
+					<p align="left">Prior to assessing this hypothesis, we wanted to determine if all the client demographic and banking behavioral variables were significant to the outcome. To determine the significance of each variable the appropriate hypothesis test was performed. For example, a two-sided t-test was performed with the age variable and outcome (y) variable. The null hypothesis was the age variable is not statistically different between the outcome variable categories. If the null hypothesis could be rejected, it would be included in our modeling. For the variables that were binary or categorical, we used the chi-squared test as the dependent term deposit variable is binary. When our independent variable was categorical for multiple groups, we used the ANOVA tests. Lastly, when the independent variable was continuous, we used the two-sided T-Test. We found all variables to be significant except for default, balance, and day.</p>
+				<p align="left">A subset of the data containing the demographic and behavioral variables was created to assess whether clients could be segmented into consumer groups. The intent was to determine if specific groups had materially higher subscription rates, which could be used to focus the bank telemarketing campaign. Clustering and classification models were applied to this data set in search for the best model.</p>
+				<p align="left">As most variables within the data are categorical, an agglomerative hierarchical clustering methodology was applied. The large number of observations proved computationally intensive and initial models identified few clusters, one of which was disproportionately large, rendering the others nearly insignificant. The same data set was subjected to decision tree, random forest, and naïve bayes classification modeling techniques.</p>
+<p align="left">Of the three methods evaluated, a decision tree using the job, age, education, loan, and balance variables provided the best model that identified different customer groups (Fig 1). The accuracy of the model was 0.752, the F-score of 0.849, and AUC value of 0.574 (Fig 2). The decision tree has a depth of three and considers the loan status and job of the client in assessing whether to assign an observation to the group with higher term loan subscriptions.</p>
+					<div style="text-align: left;"><img src="images/11.png" alt="" /></div>
+					<p align="left">Fig 1 the decision tree model</p>
+					<div style="text-align: left;"><img src="images/p2.png" alt="" /></div>
+					<p align="left">Fig 2 the ROC curve of the decision tree model</p>
+					<p align="left">The accuracy and AUC value fall below the threshold desired for model fit. Moderate differences in the average value of the demographic variables indicate clients with certain attributes more commonly subscribe to term loans (Figure 1). Clients that fell into the yes group had an average age of 52, generally did not have a home or personal loan, were unlikely to have credit in default, had an average bank balance of €2080, and tended to be retired, a student or unemployed. The terminal yes node represents 9% of the observations in the data set modeled and 51% of clients belonging to this node subscribed to a term loan. Clients that fell into the no group more commonly had a home or person loan, an average age of 40, more frequently had tertiary education, an average bank balance of 1535 and contain entrepreneurs, blue-collar workers, and technicians. Given there is considerable overlap between the characteristics of the two groups combined with lower model accuracy and AUC value, the bank’s marketing campaign will benefit from a broad approach rather than targeting small specific groups based on the decision tree characteristics.</p>
+<div style="text-align: left;"><img src="images/p3.png"" /></div>
+					<h3 align="left">What segments should be targeted?</h3>
+					<p align="left">Due to the unsuccessful segmentation as a result of the k-means and hierarchical clustering, it was decided that one form of segmentation that would serve well from a marketing perspective is whether the customer was contacted in a previous campaign or not. This managerial decision to segment the customers was not necessarily based on the significance of the variable to the outcome.
+					</p>
+					<h3 align="left">What contact parameters have an impact on subscription rate?</h3>
+					<p align="left">We built a random forest (RF) model using marketing communication variables to predict subscription results. We trained the model with train data set and tested the model with test data set. The accuracy, F-score, and AUC are 0.94, 0.70, and 0.78, respectively (Fig 3). These metrics indicate that this RF model has a good performance.  The logistic regression model also highlights the duration contact parameter as a significant variable in increasing the odds of a loan purchase.</p>
+					<div style="text-align: left;"><img src="images/p5.png" alt="" /></div>
+					<p align="left">Fig 3 the ROC curve of the RF model</p>
+					<p align="left">After completing our random forest, we calculated the importance for all the marketing communication variables. As shown in the variable importance plot (Fig 4), the duration, month, day, poutcome, and contact are the top 5 in terms of mean decrease accuracy (MDA) and have more predictive power. Duration has the highest MDA of 88%, indicating that the overall model accuracy will decrease by 88% if we exclude duration from the model. The month and day have MDA of 61% and 54%, respectively.</p>
+<div style="text-align: left;"><img src="images/p9.png" alt="" /></div>
+					<p align="left">Fig 4 variable importance</p>
+					<p align="left">We created the partial dependence plots (PDP, Fig 5) for all the variables with an MDA more than 40%. Partial dependence measures the marginal effect of a variable on the log odds of the classification outcome. From the PDP of duration, we can see that the duration between 100 to 200 seconds has the highest positive impact on the subscription outcome. The curve drops significantly after 300 seconds. From the PDP of month, we can see that May, June, July, August, and November have a relatively high positive impact on the subscription outcome. From the PDP of day, we can see that from 5th to 29th , the positive impact on the subscription outcome are relatively high, except for 10th, 22nd, and 24th. From the PDP of contact, we can see that the contact types have similar impact on the subscription, with cellular being the highest and telephone being the lowest. From the PDP of poutcome, we can see that the previous marketing outcome of a customer that has the highest impact on the subscription is the unknown.  Based on these results, we concluded some telephone marketing insights. When we call a potential customer, we want to control the duration to less than 10 minutes. After 10 minutes, the time of a telemarketing personnel spends on the call will be less effective for the subscription.</p>
+					<div style="text-align: left;"><img src="images/p6.png" alt="" /></div>
+					<div style="text-align: left;"><img src="images/p7.png" alt="" /></div>
+					<div style="text-align: left;"><img src="images/p8.png" alt="" /></div>
+					<p align="left">Fig 5 partial dependence plots of all the marketing variables</p>
+					<h3 align="left">Recommendations</h3>
+					<p align="left">With no strong customer segmentation, we recommend a broad, undifferentiated approach for our marketing. However, we would like to arrange our marketing campaigns according to our findings. From our RF, we see that the best month to contact a potential customer is May. June, July, August, and November are also good times for marketing campaigns. We want to avoid the first week of the month when contacting customers. The impact of contact on marketing is not clear because a large proportion of customers are connected through unknown means.</p>
+					<p align="left">Most of the previous outcome results are unknown. We assume these unknown results are customers who have not been contacted before. Then there is little useful information about this result for these customers. For previously contacted customers, the other type of customer also makes the analysis unclear. We can only say we want to allocate our telemarketing resources first to the customers who have not been contacted before.</p>
+				</div>
+
+			</article>
+
+
+
+		<!-- Contact -->
+			<article id="contact" class="wrapper style4">
+				<div class="container medium">
+					<header>
+						<h2>Collaboration is welcomed!<h2>
+
+					</header>
+					<div class="row">
+						<div class="col-12">
+							<form method="post" action="#">
+								<div class="row">
+									<div class="col-6 col-12-small">
+										<input type="text" name="name" id="name" placeholder="Name" />
+									</div>
+									<div class="col-6 col-12-small">
+										<input type="text" name="email" id="email" placeholder="Email" />
+									</div>
+									<div class="col-12">
+										<input type="text" name="subject" id="subject" placeholder="Subject" />
+									</div>
+									<div class="col-12">
+										<textarea name="message" id="message" placeholder="Message"></textarea>
+									</div>
+									<div class="col-12">
+										<ul class="actions">
+											<li><a href="mailto:katieska8e@gmail.com"><input type="submit" value="Send Message" /></li>
+											<li><input type="reset" value="Clear Form" class="alt" /></li>
+										</ul>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="col-12">
+							<hr />
+							</article>
+		<!-- Contact Info -->
+			<article id="contactinfo" class="wrapper style4">
+				<div class="container medium">
+
+							<h3>Contact Information</h3>
+							<ul class="social">
+								<li><a href="mailto:katieska8e@gmail.com" class="fa fa-envelope"></a></li>
+								<li><a href="https://www.linkedin.com/in/katie-ho-61780b85/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+
+								<!--
+								<li><a href="#" class="icon solid fa-rss"><span>RSS</span></a></li>
+								<li><a href="#" class="icon brands fa-instagram"><span>Instagram</span></a></li>
+								<li><a href="#" class="icon brands fa-foursquare"><span>Foursquare</span></a></li>
+								<li><a href="#" class="icon brands fa-skype"><span>Skype</span></a></li>
+								<li><a href="#" class="icon brands fa-soundcloud"><span>Soundcloud</span></a></li>
+								<li><a href="#" class="icon brands fa-youtube"><span>YouTube</span></a></li>
+								<li><a href="#" class="icon brands fa-blogger"><span>Blogger</span></a></li>
+								<li><a href="#" class="icon brands fa-flickr"><span>Flickr</span></a></li>
+								<li><a href="#" class="icon brands fa-vimeo"><span>Vimeo</span></a></li>
+								-->
+							</ul>
+							<hr />
+						</div>
+					</div>
+					<footer>
+						<ul id="copyright">
+							<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+				</div>
+			</article>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
